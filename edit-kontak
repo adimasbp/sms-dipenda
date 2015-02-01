@@ -1,0 +1,49 @@
+<?php
+include('cek-login.php');
+include('config.php');
+?>
+
+<div class="span9" id="content">
+                    <!-- morris graph chart -->
+                    <div class="row-fluid section">
+                         <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">Tambah User</div>
+                            </div>
+                            <?php
+              $id = $_GET['id'];
+              $query = mysql_query("select * from pbk where id='$id'") or die(mysql_error());
+              $data = mysql_fetch_array($query);
+              ?>
+                            <div class="block-content collapse in">
+                                <div class="span12">
+                                   <form class="form-horizontal" name="edit_kontak" method="post" action="update-kontak.php">
+                                     <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
+                                      <fieldset>
+                                        <div class="control-group">
+                                          <label class="control-label" for="focusedInput">Username</label>
+                                          <div class="controls">
+                                            <input class="input-xlarge focused" name="number" type="text" value="<?php echo $data['number']; ?>">
+                                          </div>
+                                        </div>
+                                        <div class="control-group">
+                                          <label class="control-label">Password</label>
+                                          <div class="controls">
+                                            <input class="input-xlarge focused" name="name" type="name" value="<?php echo $data['name']; ?>">
+                                          </div>
+                                        </div>
+                               
+                                        <div class="form-actions">
+                                          <button type="submit" class="btn btn-primary">Save changes</button>
+                                          <button type="reset" class="btn">Reset</button>
+                                        </div>
+                                      </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                </div>
+            </div>
